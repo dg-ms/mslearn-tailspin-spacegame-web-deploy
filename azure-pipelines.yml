@@ -5,7 +5,7 @@ variables:
   buildConfiguration: Release
   releaseBranchName: release
 schedules:
-- cron: */10 * * * *
+- cron: "*/10 * * * *"
   displayName: Deploy every day at 3 A.M.
   branches:
     include:
@@ -66,7 +66,6 @@ stages:
   dependsOn: Build
   condition: >
     and
-
     (
       succeeded(),
       eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])
